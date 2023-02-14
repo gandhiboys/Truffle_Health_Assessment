@@ -7,7 +7,7 @@ app.use(express.json());
 var bodyParser = require('body-parser')
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-
+//initialize bill array
 let bills = [];
 
 //endpoints
@@ -23,10 +23,12 @@ app.get("/items/get", (req, res) => {
     return res.json(bills);
 });
 
-//creating form
+//post endpoint
 app.post("/items",urlencodedParser, (req,res) => {
     console.log(req.body);
     bill = req.body;
+
+    //push new bill to the bill array
     bills.push(bill);
     return res.json(bill);
     // return res.render('C://Personal Info//SDSU//Internship Docs//Truffle Health - Backend//result.html', {bills:bills});
