@@ -1,7 +1,10 @@
 const request = require("supertest");
 const app = require("./app.js");
 
+
 describe("Medical Bills API", () => {
+
+  // Get api test
   describe("GET /items/get", () => {
     it("should return an array of medical bills", async () => {
       const res = await request(app).get("/items/get");
@@ -10,6 +13,7 @@ describe("Medical Bills API", () => {
     });
   });
 
+  // Post api test
   describe("POST /items", () => {
     it("should create a new medical bill", async () => {
       const bill = {

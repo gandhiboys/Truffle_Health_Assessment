@@ -10,11 +10,10 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 //initialize bill array
 let bills = [];
 
-//endpoints
+//ENDPOINTS
 
 //get endpoint
 app.get("/", (req, res) => {
-    // return res.json(bills);
     res.sendFile('C://Personal Info//SDSU//Internship Docs//Truffle Health - Backend//index.html');
 });
 
@@ -25,16 +24,14 @@ app.get("/items/get", (req, res) => {
 
 //post endpoint
 app.post("/items",urlencodedParser, (req,res) => {
-    console.log(req.body);
-    bill = req.body;
+    var bill = req.body;
 
     //push new bill to the bill array
     bills.push(bill);
     return res.json(bill);
-    // return res.render('C://Personal Info//SDSU//Internship Docs//Truffle Health - Backend//result.html', {bills:bills});
 });
 
-
+//Server listening on port 3000
 var server = app.listen(3000, () => {
   console.log("Server started on port 3000.");
 });
